@@ -1,6 +1,5 @@
 package com.example.Project_Test.user_authentication;
 
-import com.example.Project_Test.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;

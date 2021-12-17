@@ -100,6 +100,8 @@ The below dependency is the ```pom.xml``` which can be generated through : https
 </project>
 ```
 
+To Run this project you will need ```XAMPP control panel``` to start both Apache and mysql at the same time. 
+
 
 In order to connect to mysql database. Define the database properties as follow:
 ```
@@ -123,3 +125,6 @@ server.error.include-message=always
 
 spring.mvc.pathmatch.matching-strategy=ant-path-matcher
 ```
+
+After all the setup is done, you can read and test API documentation via:
+http://localhost:8080/swagger-ui/

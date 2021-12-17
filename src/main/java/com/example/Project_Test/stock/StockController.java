@@ -7,7 +7,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "api/v1/stock")
+@RequestMapping(path = "/api/v1/stock")
 public class StockController {
     private final StockService stockService;
 

@@ -1,14 +1,14 @@
 package com.example.Project_Test.user_authentication;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import com.example.Project_Test.purchased_item.PurchasedItem;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name ="user")
 public class User {
 
     @Id
@@ -19,10 +19,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
 
     private Long id;
+    @NotNull
     private String username;
+    @NotNull
     private String password;
+    @NotNull
     private String email;
+    @NotNull
     private String role;
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private Set<PurchasedItem> purchasedItems = new HashSet<>();
 
     public User() {
     }

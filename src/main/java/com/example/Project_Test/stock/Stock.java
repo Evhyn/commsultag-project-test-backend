@@ -1,25 +1,35 @@
 package com.example.Project_Test.stock;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
+import com.example.Project_Test.purchased_item.PurchasedItem;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table
+@Table(name ="stock")
 public class Stock {
+
+
+
     @Id
     @SequenceGenerator(name = "stock_sequence", sequenceName = "stock_sequence", allocationSize = 1
 
     )
 
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_sequence")
+    @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "stock_sequence")
     private Long id;
+    @NotNull
     private String name;
+    @NotNull
     private Integer quantity;
+    @NotNull
     private Integer price;
+
+    @OneToMany
+    @JoinColumn(name = "stock_id")
+    private Set<PurchasedItem> purchasedItems = new HashSet<>();
 
     public Stock() {
     }
